@@ -1,5 +1,18 @@
 > This Sarup doesn't make you a master of SQL, it just makes you not KYS in the exam room.
 
+
+## Database Normalization
+
+- **First Normal Form (1NF)** – Ensures that each column contains atomic (indivisible) values and that each row has a unique identifier (primary key).
+- **Second Normal Form (2NF)** – Builds on 1NF by ensuring that all non-key attributes are fully dependent on the primary key (eliminates partial dependency).
+- **Third Normal Form (3NF)** – Ensures that all attributes are only dependent on the primary key and not on other non-key attributes (removes transitive dependencies).
+- **Boyce-Codd Normal Form (BCNF)** – A stricter version of 3NF where every determinant is a candidate key.
+- **Fourth Normal Form (4NF)** – Removes multi-valued dependencies.
+- **Fifth Normal Form (5NF)** – Ensures that data is split into the smallest possible related tables without introducing redundancy.
+
+## SQL Statements 
+### DDL - Data Definition Language
+
 ```sql 
 -- DDL : CREATE, DROP, ALTER, (TRUNCATE, COMMENT, RENAME)
 CREATE TABLE Students (
@@ -17,6 +30,7 @@ DROP TABLE Students;
 
 ALTER TABLE Students ADD COLUMN email VARCHAR(255) UNIQUE;
 ```
+### DML - Data Manipulation Language
 
 ```sql 
 -- DML : INSERT, UPDATE, DELETE, LOCK, CALL, EXPLAIN PLAN
@@ -26,6 +40,7 @@ UPDATE Students SET firstname = 'Phubordin', lastname = 'Poolnai', middlename = 
 
 DELETE FROM Students WHERE id = 1;
 ```
+### DQL - Data Query Language
 
 ```sql 
 -- DQL : SELECT, DISTINCT, WHERE, ORDER BY, Aggregate functions, JOIN, Wildcards
@@ -89,8 +104,8 @@ FROM Students
 GROUP BY department_id
 HAVING AVG(current_year) > 1; -- Only show departments where avg year is greater than 1
 ```
+### Assertion
 
-## Assertion
 ```sql
 -- ASSERTION : MySQL don't support this!
 -- So We'll use something like this
@@ -104,8 +119,8 @@ CREATE TABLE Students (
 -- Teacher's way
 CREATE ASSERTION SALARY_CONSTRAINT CHECK (NOT EXISTS (SELECT * FROM EMPLOYEE E, EMPLOYEE M, DEPARTMENT D WHERE E.Dno = D.Dnumber AND D.Mgr_ssn = M.Ssn AND E.Salary > M.Salary));
 ```
+### Trigger
 
-## Trigger
 ```sql
 -- TRIGGER : Run SQL statement after one triggered
 CREATE TABLE StudentLogs (
@@ -123,8 +138,8 @@ BEGIN
     VALUES (NEW.id, 'INSERTED');
 END;
 ```
+### View
 
-## View
 ```sql
 CREATE VIEW StudentDepartment AS
 SELECT S.id, S.firstname, S.lastname, D.department_name
@@ -132,20 +147,19 @@ FROM Students S
 JOIN Departments D ON S.department_id = D.id;
 ```
 
-## Indexing
-
-### Create Index
+### Indexing
+#### Create Index
 
 ```sql
--- We can't see index directly since it's like magic that makes SQL run faster
--- Index works like "Cache" that means it sucks at updating data but good at retrieve data.
+-- We can't see the index directly since it's like magic that makes SQL run faster.
+-- Index works like "cache," which means it sucks at updating data but is good at retrieving data.
 CREATE INDEX student_index
 ON Students (id, firstname, lastname);
 ```
+#### Drop Index
 
-### Drop Index
 ```sql
--- Other DBMS can DROP INDEX directly but in MySQL we have to do this
+-- Other DBMS can DROP INDEX directly, but in MySQL we have to do this.
 ALTER TABLE Students
 DROP INDEX student_index;
 ```
