@@ -3,13 +3,52 @@
 
 ## Database Normalization
 
-- **First Normal Form (1NF)** – Ensures that each column contains atomic (indivisible) values and that each row has a unique identifier (primary key).
+- **First Normal Form (1NF)** – Removes multi-valued dependencies and that each row has a unique identifier (primary key).
 - **Second Normal Form (2NF)** – Builds on 1NF by ensuring that all non-key attributes are fully dependent on the primary key (eliminates partial dependency).
 - **Third Normal Form (3NF)** – Ensures that all attributes are only dependent on the primary key and not on other non-key attributes (removes transitive dependencies).
 - **Boyce-Codd Normal Form (BCNF)** – A stricter version of 3NF where every determinant is a candidate key.
-- **Fourth Normal Form (4NF)** – Removes multi-valued dependencies.
-- **Fifth Normal Form (5NF)** – Ensures that data is split into the smallest possible related tables without introducing redundancy.
 
+### BCNF Example in SQL
+
+```sql
+-- Imagine we have many-to-many relationship between Professor and Course
+
+CREATE TABLE Professor (
+    professor_id INT PRIMARY KEY,
+    professor_name VARCHAR(100)
+);
+
+CREATE TABLE Course (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(100)
+);
+
+CREATE TABLE CourseSchedule (
+    professor_id INT,
+    course_id INT,
+    classroom VARCHAR(10),
+    PRIMARY KEY (professor_id, course_id)
+);
+
+-- ✅ (professor_id, course_id) are candidate key
+-- ❌ but you can see that classroom should be unique but can't be candidate key because we want classroom to determines the professor, not course.
+```
+
+```sql
+-- So, we use Boyce-Codd Normal Form (BCNF) to normalize CourseSchedule and we'll get.
+
+CREATE TABLE CourseSchedule (
+    professor_id INT,
+    course_id INT,
+    PRIMARY KEY (professor_id, course_id)
+);
+
+CREATE TABLE ClassroomAssignment (
+    classroom VARCHAR(10) PRIMARY KEY,
+    professor_id INT
+);
+
+```
 ## SQL Statements 
 ### DDL - Data Definition Language
 
