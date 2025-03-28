@@ -107,7 +107,7 @@ CREATE ASSERTION SALARY_CONSTRAINT CHECK (NOT EXISTS (SELECT * FROM EMPLOYEE E, 
 
 ## Trigger
 ```sql
--- TRIGGER
+-- TRIGGER : Run SQL statement after one triggered
 CREATE TABLE StudentLogs (
     log_id INT PRIMARY KEY AUTO_INCREMENT,
     student_id INT,
@@ -130,4 +130,22 @@ CREATE VIEW StudentDepartment AS
 SELECT S.id, S.firstname, S.lastname, D.department_name
 FROM Students S
 JOIN Departments D ON S.department_id = D.id;
+```
+
+## Indexing
+
+### Create Index
+
+```sql
+-- We can't see index directly since it's like magic that makes SQL run faster
+-- Index works like "Cache" that means it sucks at updating data but good at retrieve data.
+CREATE INDEX student_index
+ON Students (id, firstname, lastname);
+```
+
+### Drop Index
+```sql
+-- Other DBMS can DROP INDEX directly but in MySQL we have to do this
+ALTER TABLE Students
+DROP INDEX student_index;
 ```
