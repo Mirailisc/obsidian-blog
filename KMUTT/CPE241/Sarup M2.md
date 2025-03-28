@@ -1,13 +1,10 @@
 > This Sarup doesn't make you a master of SQL, it just makes you not KYS in the exam room.
-
-
 ## Database Normalization
 
 - **First Normal Form (1NF)** – Removes multi-valued dependencies and that each row has a unique identifier (primary key).
 - **Second Normal Form (2NF)** – Builds on 1NF by ensuring that all non-key attributes are fully dependent on the primary key (eliminates partial dependency).
 - **Third Normal Form (3NF)** – Ensures that all attributes are only dependent on the primary key and not on other non-key attributes (removes transitive dependencies).
 - **Boyce-Codd Normal Form (BCNF)** – A stricter version of 3NF where every determinant is a candidate key.
-
 ### BCNF Example in SQL
 
 ```sql
@@ -105,6 +102,8 @@ SELECT * FROM Students WHERE departments, course; -- All combinations of Departm
 (QUERY 1)
 <set operations> -- UNION, EXCEPT, INTERSECT
 (QUERY 2)
+
+-- Example using set operations with Query
 (SELECT * FROM Students)
 UNION
 (SELECT * FROM Participants);
