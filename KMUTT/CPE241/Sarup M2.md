@@ -201,3 +201,91 @@ ON Students (id, firstname, lastname);
 ALTER TABLE Students
 DROP INDEX student_index;
 ```
+
+## Relational Algebra
+
+- **Selection(σ)** : allows you to filter rows from a given table **(IT IS WHERE IN SQL)**
+
+```
+σ(c>3)(R) ; replace R by table name
+
+meaning : SELECT * FROM R WHERE c > 3;
+```
+
+- **Projection(π)** : allows you to pick specific columns **(IT IS SELECT IN SQL)**
+
+```
+π(B,C)(R) ; replace R by table name
+
+meaning : SELECT B, C FROM R;
+```
+
+- **Union(U)** : combine the results of two queries into a single result **(IT IS UNION IN SQL)**
+
+```
+π(A)(C) U π(B)(D)
+
+meaning: (SELECT A FROM C) UNION (SELECT B FROM D);
+```
+
+- **Set Difference(-)** : Same as set difference operation in math **(IT IS EXCEPT IN SQL)**
+
+```
+π(A)(C) - π(B)(D)
+
+meaning: (SELECT A FROM C) EXCEPT (SELECT B FROM D);
+```
+
+- **Rename(ρ)** : give a temporary name to a specific relational table or to its columns **(IT IS ALTER TABLE WITH RENAME IN SQL)**
+
+```
+ρ(D/B)(R)
+
+meaning: ALTER TABLE R RENAME COLUMN B D;
+```
+
+- **Cross Product(X)** : Same as cross product in math **(IT IS JOIN IN SQL)**
+
+```
+A x B
+
+meaning: SELECT * FROM A JOIN B ON A.bid = B.id;
+```
+
+- **Set Intersection(∩)** : Same as intersection in math **(IT IS INTERSECT IN SQL)**
+
+```
+π(A)(C) ∩ π(B)(D)
+
+meaning: (SELECT A FROM C) INTERSECT (SELECT B FROM D);
+```
+
+- **Division (÷)** : find tuples in one relation that are related to all tuples in another relation
+
+Student_Course Table
+
+| Student_ID | Course_ID |
+| ---------- | --------- |
+| 101        | C1        |
+| 101        | C2        |
+| 102        | C1        |
+| 103        | C1        |
+| 103        | C2        |
+
+Course Table
+
+| Course_ID |
+| --------- |
+| C1        |
+| C2        |
+
+```
+Student_Course(Student_ID, Course_ID) ÷ Course(Course_ID)
+```
+
+Expected
+
+|Student_ID|
+|---|
+|101|
+|103|
