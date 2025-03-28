@@ -117,13 +117,19 @@ INSERT INTO Students(gpax) SELECT AVG(Grades.grade) FROM Grades WHERE Grades.stu
 
 SELECT S.firstname, S.lastname FROM Students AS S WHERE S.Foo IN (SELECT * FROM Bar AS B WHERE B.slave = S.id)
 
--- IN : Check if result is in that table
--- EXISTS : Check if result is exist in that table
+-- IN : Check if result is in that table (usually use with subquery)
+SELECT * FROM Students WHERE Student.country IN (SELECT country_name AS country FROM Countries WHERE country_continent = "Asia");
+
+-- EXISTS : Check if result is exist in that table (usually use with subquery)
+SELECT SupplierName
+FROM Suppliers
+WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20);
 
 -- GROUP BY
 SELECT * FROM Students LEFT JOIN Departments ON Students.departmentId = Departments.id GROUP BY Departments.name
 
 -- HAVING
+-- we use having when we want condition for aggregation (usually when we want condition for GROUP BY)
 SELECT department_id, AVG(current_year) AS avg_year
 FROM Students
 GROUP BY department_id
