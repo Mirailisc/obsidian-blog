@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "e83b7c27aeeb2982",
+        "id": "ae4ad087a53cb670",
         "type": "tabs",
         "children": [
           {
-            "id": "d3bf49a86ec73346",
+            "id": "aaa1439dfdb7f052",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -170,10 +170,15 @@
   },
   "active": "d397a5ea43256434",
   "lastOpenFiles": [
+    "Personal/images/homelab.jpeg",
+    "Personal/images/dorm.jpeg",
+    "Personal/images/openhouse.png",
+    "images/bangmod.md",
+    "images",
+    "Personal/images/hackathon.png",
+    "Personal/2024 Year Review.md",
     "Personal/images/comcamp.png",
     "Personal/images",
-    "Personal/2024 Year Review.md",
-    "images",
     "CPE/Database/M2 Exercise.md",
     "Personal",
     "CPE/Database/Sarup M1.md",
@@ -181,7 +186,6 @@
     "CPE",
     "chiaki.png",
     "README.md",
-    "images",
     "KMUTT/CPE241/Database Practice M1.md",
     "KMUTT/CPE241/Database Practice M2.md",
     "KMUTT/CPE241/PDF",
