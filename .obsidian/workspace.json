@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "b793f5e0edb7a958",
+        "id": "e83b7c27aeeb2982",
         "type": "tabs",
         "children": [
           {
-            "id": "4a21cca983cbb685",
+            "id": "d3bf49a86ec73346",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Personal/2024 Year Review.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "2024 Year Review"
+              "title": "New tab"
             }
           }
         ]
@@ -168,11 +164,12 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "4a21cca983cbb685",
+  "active": "d397a5ea43256434",
   "lastOpenFiles": [
-    "CleanShot 2568-04-17 at 7 .13.27.png",
-    "CPE/Database/M2 Exercise.md",
+    "images/comcamp.png",
     "Personal/2024 Year Review.md",
+    "images",
+    "CPE/Database/M2 Exercise.md",
     "Personal",
     "CPE/Database/Sarup M1.md",
     "CPE/Database/Sarup M2.md",
