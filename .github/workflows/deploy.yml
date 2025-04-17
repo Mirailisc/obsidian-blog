@@ -21,20 +21,7 @@ jobs:
             --exclude=".github" \
             --exclude=".git" \
             --exclude="chiaki.png" \
-            --exclude="README.md" \
-            --exclude="**/*.png" \
-            --exclude="**/*.jpg" \
-            --exclude="**/*.jpeg"
-
-      - name: Copy images to public/images/ folder
-        run: |
-          # Create the public/images directory outside of src
-          mkdir -p filtered-content/public/images
-          
-          # Copy all image files from the source repo (not filtered) into public/images/
-          cp ./src/content/**/*.png filtered-content/public/images/ || echo "No PNG images found"
-          cp ./src/content/**/*.jpg filtered-content/public/images/ || echo "No JPG images found"
-          cp ./src/content/**/*.jpeg filtered-content/public/images/ || echo "No JPEG images found"
+            --exclude="README.md"
 
       - name: Clone destination repo
         run: |
