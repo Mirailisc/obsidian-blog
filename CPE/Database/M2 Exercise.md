@@ -1,5 +1,5 @@
 ---
-title: M2 Exercise
+title: แบบฝึกหัด M2 Database
 description: This docs is the possible answers (in SQL) for M2 database exercise
 pubDate: 30 Mar 2025
 category: database

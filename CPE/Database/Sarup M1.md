@@ -1,5 +1,5 @@
 ---
-title: Sarup M1
+title: สรุปเนื้อหา M1
 description: This docs is the summary of M1 database lecture
 pubDate: 30 Feb 2025
 category: database

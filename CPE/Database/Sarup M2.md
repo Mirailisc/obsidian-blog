@@ -1,5 +1,5 @@
 ---
-title: Sarup M2
+title: สรุปเนื้อหา M2
 description: This docs is the summary of M2 database lecture
 pubDate: 30 Mar 2025
 category: database
