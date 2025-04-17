@@ -1,0 +1,43 @@
+name: Push to Arius Blog
+
+on:
+  push:
+    branches:
+      - main  # or your source branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source repo
+        uses: actions/checkout@v3
+
+      - name: Filter and prepare content (excluding .obsidian and .github)
+        run: |
+          mkdir -p filtered-content
+          rsync -av --progress ./ ./filtered-content/ \
+            --exclude=".obsidian" \
+            --exclude=".github" \
+            --exclude=".git" \
+            --exclude="chiaki.png" \
+            --exclude="README.md"
+
+      - name: Clone destination repo
+        run: |
+          git clone https://x-access-token:${{ secrets.ARIUS_BLOG_TOKEN }}@github.com/Mirailisc/arius-blog.git dest-repo
+
+      - name: Copy content into destination repo's src/content
+        run: |
+          mkdir -p dest-repo/src/content
+          rsync -av --delete ./filtered-content/ ./dest-repo/src/content/
+
+      - name: Commit and push to destination repo
+        run: |
+          cd dest-repo
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Sync content from source repo [skip ci]" || echo "Nothing to commit"
+          git push origin main
+
