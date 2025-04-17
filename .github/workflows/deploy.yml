@@ -28,11 +28,11 @@ jobs:
 
       - name: Copy images to public/images/ folder
         run: |
-          # Create the public/images directory
+          # Create the public/images directory outside of src
           mkdir -p filtered-content/public/images
           
-          # Copy all images from src/content/ to public/images/
-          find ./ -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) -exec cp {} filtered-content/public/images/ \;
+          # Copy all images (from any subfolder) to the public/images directory outside of src
+          find filtered-content/src/content -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) -exec cp {} filtered-content/public/images/ \;
 
       - name: Clone destination repo
         run: |
