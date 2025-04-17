@@ -26,15 +26,13 @@ jobs:
             --exclude="**/*.jpg" \
             --exclude="**/*.jpeg"
 
-      - name: Move images to public/images/ folder
+      - name: Copy images to public/images/ folder
         run: |
           # Create the public/images directory
           mkdir -p filtered-content/public/images
           
-          # Move all images from src/content/ to public/images/
-          find filtered-content/src/content -name "*.png" -exec mv {} filtered-content/public/images/ \;
-          find filtered-content/src/content -name "*.jpg" -exec mv {} filtered-content/public/images/ \;
-          find filtered-content/src/content -name "*.jpeg" -exec mv {} filtered-content/public/images/ \;
+          # Copy all images from src/content/ to public/images/
+          find ./ -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) -exec cp {} filtered-content/public/images/ \;
 
       - name: Clone destination repo
         run: |
