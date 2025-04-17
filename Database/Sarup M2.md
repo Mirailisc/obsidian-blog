@@ -1,3 +1,9 @@
+---
+title: Sarup M2
+description: This docs is the summary of M2 database lecture
+pubDate: 30 Mar 2025
+---
+
 > This Sarup doesn't make you a master of SQL, it just makes you not KYS in the exam room.
 ## Database Normalization
 

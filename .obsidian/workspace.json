@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "7075bbfbbfd54745",
+        "id": "b793f5e0edb7a958",
         "type": "tabs",
         "children": [
           {
-            "id": "555801eac0122391",
+            "id": "4a21cca983cbb685",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "KMUTT/CPE241/M2 Exercise.md",
+                "file": "Database/Sarup M2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "M2 Exercise"
+              "title": "Sarup M2"
             }
           }
         ]
@@ -168,18 +168,18 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "555801eac0122391",
+  "active": "4a21cca983cbb685",
   "lastOpenFiles": [
-    "KMUTT/CPE241/Sarup M2.md",
-    "KMUTT/CPE241/Sarup M1.md",
-    "KMUTT/CPE241/M2 Exercise.md",
-    "README.md",
+    "Database/M2 Exercise.md",
+    "Database/Sarup M1.md",
+    "Database/Sarup M2.md",
     "chiaki.png",
+    "README.md",
     "images",
     "KMUTT/CPE241/Database Practice M1.md",
     "KMUTT/CPE241/Database Practice M2.md",
     "KMUTT/CPE241/PDF",
-    "KMUTT/CPE241",
+    "Database",
     "KMUTT",
     "Welcome.md"
   ]

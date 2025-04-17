@@ -1,3 +1,9 @@
+---
+title: Sarup M1
+description: This docs is the summary of M1 database lecture
+pubDate: 30 Feb 2025
+---
+
 ```sql
 -- ex. CREATE DATABASE asdasdsadsadsad; 
 CREATE TABLE <name>( 
