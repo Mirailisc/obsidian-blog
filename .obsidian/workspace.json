@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Database/Sarup M2.md",
+                "file": "CPE/Database/Sarup M2.md",
                 "mode": "source",
                 "source": false
               },
@@ -168,18 +168,19 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "4a21cca983cbb685",
+  "active": "d397a5ea43256434",
   "lastOpenFiles": [
-    "Database/M2 Exercise.md",
-    "Database/Sarup M1.md",
-    "Database/Sarup M2.md",
+    "CPE",
+    "CPE/Database/M2 Exercise.md",
+    "CPE/Database/Sarup M1.md",
+    "CPE/Database/Sarup M2.md",
     "chiaki.png",
     "README.md",
     "images",
     "KMUTT/CPE241/Database Practice M1.md",
     "KMUTT/CPE241/Database Practice M2.md",
     "KMUTT/CPE241/PDF",
-    "Database",
+    "CPE/Database",
     "KMUTT",
     "Welcome.md"
   ]
