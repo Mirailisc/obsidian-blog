@@ -31,7 +31,7 @@ jobs:
           # Create the public/images directory outside of src
           mkdir -p filtered-content/public/images
           
-          # Copy all image files (from the original content directory) to the public/images/ folder
+          # Copy all image files from the source repo (not filtered) into public/images/
           cp ./src/content/**/*.png filtered-content/public/images/ || echo "No PNG images found"
           cp ./src/content/**/*.jpg filtered-content/public/images/ || echo "No JPG images found"
           cp ./src/content/**/*.jpeg filtered-content/public/images/ || echo "No JPEG images found"
