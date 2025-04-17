@@ -31,8 +31,10 @@ jobs:
           # Create the public/images directory outside of src
           mkdir -p filtered-content/public/images
           
-          # Copy all images (from any subfolder) to the public/images directory outside of src
-          find filtered-content/src/content -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) -exec cp {} filtered-content/public/images/ \;
+          # Copy all image files (from the original content directory) to the public/images/ folder
+          cp ./src/content/**/*.png filtered-content/public/images/ || echo "No PNG images found"
+          cp ./src/content/**/*.jpg filtered-content/public/images/ || echo "No JPG images found"
+          cp ./src/content/**/*.jpeg filtered-content/public/images/ || echo "No JPEG images found"
 
       - name: Clone destination repo
         run: |
