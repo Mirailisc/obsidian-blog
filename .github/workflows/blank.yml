@@ -13,30 +13,26 @@ jobs:
       - name: Checkout source repo
         uses: actions/checkout@v3
 
-      - name: Filter and copy content (excluding .obsidian)
+      - name: Filter and prepare content (excluding .obsidian)
         run: |
-          mkdir -p temp-content
-          rsync -av --progress ./ ./temp-content/ --exclude=".obsidian" --exclude=".git"
+          mkdir -p filtered-content
+          rsync -av --progress ./ ./filtered-content/ --exclude=".obsidian" --exclude=".git"
 
-      - name: Initialize destination repo
+      - name: Clone destination repo
         run: |
-          cd temp-content
-          git init
+          git clone https://x-access-token:${{ secrets.ARIUS_BLOG_TOKEN }}@github.com/Mirailisc/arius-blog.git dest-repo
+
+      - name: Copy content into destination repo's src/content
+        run: |
+          mkdir -p dest-repo/src/content
+          rsync -av --delete ./filtered-content/ ./dest-repo/src/content/
+
+      - name: Commit and push to destination repo
+        run: |
+          cd dest-repo
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git remote add origin https://x-access-token:${{ secrets.ARIUS_BLOG_TOKEN }}@github.com/Mirailisc/arius-blog.git
-          git fetch origin
-          git checkout -B main origin/main
-
-      - name: Move content to desired subdirectory
-        run: |
-          mkdir -p src/content
-          rsync -av --delete ./ ./src/content/ --exclude="src/content"
-          shopt -s extglob
-          rm -rf !(src)
-
-      - name: Commit and push changes
-        run: |
           git add .
           git commit -m "Sync content from source repo [skip ci]" || echo "Nothing to commit"
           git push origin main
+
