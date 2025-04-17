@@ -13,10 +13,15 @@ jobs:
       - name: Checkout source repo
         uses: actions/checkout@v3
 
-      - name: Filter and prepare content (excluding .obsidian)
+      - name: Filter and prepare content (excluding .obsidian and .github)
         run: |
           mkdir -p filtered-content
-          rsync -av --progress ./ ./filtered-content/ --exclude=".obsidian" --exclude=".git"
+          rsync -av --progress ./ ./filtered-content/ \
+            --exclude=".obsidian" \
+            --exclude=".github" \
+            --exclude=".git" \
+            --exclude="chiaki.png" \
+            --exclude="README.md"
 
       - name: Clone destination repo
         run: |
